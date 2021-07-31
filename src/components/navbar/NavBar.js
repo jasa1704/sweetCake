@@ -1,7 +1,8 @@
 import React from 'react';
 import './NavBar.scss';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import logo from '../../assets/img/logo-sweet-cake.png'
+import CartWidget from '../../components/cartWidget/CartWidget'
+import logo from "../../assets/img/logo-sweet-cake.png";
 
 export default function NavBar() {
     return (
@@ -25,6 +26,7 @@ export default function NavBar() {
                         <Nav.Link href="#we">Nosotros</Nav.Link>
                         <Nav.Link href="#contact">Contacto</Nav.Link>
                     </Nav>
+                    <CartWidget/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
