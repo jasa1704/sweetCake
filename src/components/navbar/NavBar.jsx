@@ -1,8 +1,8 @@
 import React from 'react';
 import './NavBar.scss';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import CartWidget from '../../components/cartWidget/CartWidget'
-import logo from "../../assets/img/logo-sweet-cake.png";
+import CartWidget from './cartWidget/CartWidget'
+import logo from "../../assets/img/logo/logo-sweet-cake.png";
 
 export default function NavBar() {
     return (

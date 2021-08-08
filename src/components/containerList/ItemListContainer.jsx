@@ -1,6 +1,6 @@
 import React from "react";
 import "./ItemListContainer.scss";
-import ItemCard from "../itemCard/ItemCard";
+import ItemList from "./cardList/ItemList";
 
 export default function ItemListContainer(props) {
   return (
@@ -10,7 +10,7 @@ export default function ItemListContainer(props) {
                 <h1>{props.greeting}</h1>
             </div>
             <div className="list">
-               <ItemCard/>
+               <ItemList/>
             </div>
        </div>
     </>
