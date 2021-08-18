@@ -3,8 +3,18 @@
     font-size: 25px;
     background-color: #cac5ff;
     color: white;
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a:focus{
+        color: #e2002693;
+    }
+    
+    .title-brand{
+        font-size: 27px;
+    }
 }
 
-.title-brand{
-    font-size: 27px;
-}
+

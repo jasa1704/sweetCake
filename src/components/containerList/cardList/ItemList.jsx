@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItemCard from './card/ItemCard'
 import { stockData } from '../../../assets/data/data'
-import { useEffect } from "react";
 import "./ItemList.scss";
 
 export default function ItemList() {
@@ -23,13 +22,13 @@ export default function ItemList() {
   }, []);
 
   return (
-    <>    
-      <div>{loading}</div>
+    <div>    
+      <div className="loading">{loading}</div>
       <div className="container-list">
-      {products.map((stockProducts) => (
-        <ItemCard key={stockProducts.id} img={stockProducts.img} title={stockProducts.title} price={stockProducts.price} stock={stockProducts.stock}/>
+      {products.map((stockProduct) => (
+        <ItemCard key={stockProduct.id} id={stockProduct.id} img={stockProduct.img} title={stockProduct.title} price={stockProduct.price} summary={stockProduct.summary} stock={stockProduct.stock}/>
       ))}
       </div>
-    </>
+    </div>
   );
 }
