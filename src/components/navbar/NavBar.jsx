@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavBar.scss';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from './cartWidget/CartWidget'
 import logo from "../../assets/img/logo/logo-sweet-cake.png";
 import { Link } from "react-router-dom";
@@ -24,8 +24,12 @@ export default function NavBar() {
                     <Nav>
                         <Nav.Link as={Link} to="/home">Inicio</Nav.Link>
                         <Nav.Link as={Link} to="/products">Productos</Nav.Link>
-                        <Nav.Link as={Link} to="/we">Nosotros</Nav.Link>
-                        <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
+                        <NavDropdown title="Categorias" id="basic-nav-dropdown">
+                            <NavDropdown.Item as={Link} to="/product-category/1">Amor y amistad</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product-category/2">San Valentin</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product-category/3">Peliculas</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product-category/4">Infantil</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                     <CartWidget/>
                 </Navbar.Collapse>

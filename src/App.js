@@ -4,8 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./pages/home";
 import Products from "./pages/products";
-import We from "./pages/we";
-import Contact from "./pages/contact";
+import ProductCategory from "./pages/productCategory";
 import ProductDetail from "./pages/productDetail";
 
 export default function App() {
@@ -26,11 +25,8 @@ export default function App() {
           <Route exact path="/products-detail/:id">
             <ProductDetail />
           </Route>
-          <Route exact path="/we">
-            <We />
-          </Route>
-          <Route exact path="/contact">
-            <Contact />
+          <Route exact path="/product-category/:id">
+            <ProductCategory />
           </Route>
         </Switch>
       </BrowserRouter>

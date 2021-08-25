@@ -1,0 +1,17 @@
+.list{
+    display: flex;
+    justify-content: center;
+    margin-top:5%;
+    
+    .container-list{
+        display: grid;
+        gap: 2em;
+        grid-template-columns: repeat(12,1fr);
+        padding-bottom: 5%;
+    }
+    
+    .loading{
+        font-size: 2em;
+        font-weight: bold;
+    }
+}

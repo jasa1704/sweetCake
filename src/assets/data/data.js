@@ -5,7 +5,8 @@ export const stockData = [
       title: "Pastel globos y fresas",
       price: 50000,
       summary: "Pastel de vainilla con relleno de durazno, cubierto con chantilly y chocolate blanco, decorado con fresas",
-      stock: 5
+      stock: 5,
+      category: 1
     },
     {
       id: "2",
@@ -13,7 +14,8 @@ export const stockData = [
       title: "Pastel con macarons",
       price: 50000,
       summary: "Pastel de vainilla con frutos secos, recubierto de chantilly y chocolate blanco, decorado con macarons",
-      stock: 6
+      stock: 6,
+      category: 2
     },
     {
       id: "3",
@@ -21,7 +23,8 @@ export const stockData = [
       title: "Pastel de Bob Esponja",
       price: 60000,
       summary: "Pastel de vainilla y chocolate, recubierto de chantilly y decorado con figuras en fondant",
-      stock: 9
+      stock: 9,
+      category: 3
     },
     {
       id: "4",
@@ -29,7 +32,8 @@ export const stockData = [
       title: "Pastel de los Minios",
       price: 40000,
       summary: "Pastel de dos niveles, recubierto de chantilly y decorado personajes de los Minios",
-      stock: 7
+      stock: 7,
+      category: 3
     },
     {
       id: "5",
@@ -37,7 +41,8 @@ export const stockData = [
       title: "Pastel Los Simpson",
       price: 30000,
       summary: "Pastel de vainilla recubierto de chantilly y grajeas de colores, decorado con el personaje de Homero Simpson",
-      stock: 5
+      stock: 5,
+      category: 3
     },
     {
       id: "6",
@@ -45,6 +50,7 @@ export const stockData = [
       title: "Pastel de sirena",
       price: 60000,
       summary: "Pastel de vainilla recubierto de chantilly y chocolate blanco, decorado figuras del mar en chocolate",
-      stock: 8
+      stock: 8,
+      category: 4
     },
   ];
