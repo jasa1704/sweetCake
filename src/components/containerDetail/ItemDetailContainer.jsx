@@ -2,6 +2,9 @@ import React, { useEffect, useState }  from "react";
 import { stockData } from '../../assets/data/data'
 import "./ItemDetailContainer.scss";
 import { useParams } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import ItemCount from "../../components/containerList/cardList/card/count/ItemCount";
 
 export default function ItemDetailContainer() {
 
@@ -9,6 +12,7 @@ export default function ItemDetailContainer() {
 
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
+  const [countDetail, setCountDetail] = useState(0);
 
   const getItems = () => {
     new Promise((resolve, reject) => {
@@ -38,6 +42,8 @@ export default function ItemDetailContainer() {
        <img src={product.img}></img>
        <h3>${product.price}</h3>
        <p>{product.summary}</p>
+       <ItemCount stock={product.stock} setCountDetail={setCountDetail}/>
+       {countDetail > 0 ? <Button as={Link} to={`/cart`} variant="primary">Terminar compra</Button>: null}
     </div>
   );
 }

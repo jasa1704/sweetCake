@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { CartContext } from "../context/cartContext";
+
 export default function Home(){
-    return <>Bienvenidos a Dulce pastel</>;
+    const msgWelcome = useContext(CartContext);
+    return <>{msgWelcome} </>;
 }

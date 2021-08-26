@@ -2,18 +2,20 @@ import React, {useState} from "react";
 import { Button } from "react-bootstrap";
 import "./ItemCount.scss";
 
-export default function ItemCount({ stock }) {
+export default function ItemCount({ stock, setCountDetail }) {
   const [count, setCount] = useState(0);
 
   function add(count) {
     if(count < stock){
         setCount(count + 1);
+        setCountDetail(countDetail => countDetail = count + 1);
     }
   }
 
   function subtract (count) {
     if(count > 0){
         setCount(count - 1);
+        setCountDetail(countDetail => countDetail = count - 1);
     }
   }
 
