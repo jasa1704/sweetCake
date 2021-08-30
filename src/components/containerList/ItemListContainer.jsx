@@ -1,17 +1,13 @@
 import React from "react";
 import "./ItemListContainer.scss";
 import ItemList from "./cardList/ItemList";
-import { DropdownButton, Dropdown } from "react-bootstrap";
 
 export default function ItemListContainer(props) {
   return (
     <>
        <div className="container-item-list">
-            <div className="welcome">
-                <h1>{props.greeting}</h1>
-            </div>
             <div className="list">
-               <ItemList/>
+               <ItemList titleProduct={props.greeting}/>
             </div>
        </div>
     </>

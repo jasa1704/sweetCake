@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ItemCount from "./count/ItemCount";
+import ItemCount from "../../../count/ItemCount";
 import "./ItemCard.scss";
-import ItemSummary from "./summary/ItemSummary";
+import ItemSummary from "../../../summary/ItemSummary";
 
 export default function ItemCard(props) {
 

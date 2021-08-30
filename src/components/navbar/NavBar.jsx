@@ -30,8 +30,9 @@ export default function NavBar() {
                             <NavDropdown.Item as={Link} to="/product-category/3">Peliculas</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/product-category/4">Infantil</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link as={Link} to="/cart"> <CartWidget/> </Nav.Link>
+                       
                     </Nav>
-                    <CartWidget/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

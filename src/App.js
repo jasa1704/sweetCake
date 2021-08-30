@@ -7,13 +7,14 @@ import Home from "./pages/home";
 import Products from "./pages/products";
 import ProductCategory from "./pages/productCategory";
 import ProductDetail from "./pages/productDetail";
+import Cart from "./pages/cart";
 import { CartContext } from "./context/cartContext";
 
 export default function App() {
-  const [welcome, setWelcome] = useState(['Bienvenido a Dulce Pastel']);
+  const [itemDetail, setItemDetail] = useState({});
   return (
     <div className="App">
-      <CartContext.Provider value={welcome}>
+      <CartContext.Provider value={{ itemDetail, setItemDetail }}>
         <BrowserRouter>
           <NavBar />
           <Switch>
@@ -31,6 +32,9 @@ export default function App() {
             </Route>
             <Route exact path="/product-category/:id">
               <ProductCategory />
+            </Route>
+            <Route exact path="/cart">
+              <Cart />
             </Route>
           </Switch>
         </BrowserRouter>

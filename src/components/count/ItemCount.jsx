@@ -8,14 +8,18 @@ export default function ItemCount({ stock, setCountDetail }) {
   function add(count) {
     if(count < stock){
         setCount(count + 1);
-        setCountDetail(countDetail => countDetail = count + 1);
+        if(setCountDetail){
+          setCountDetail(countDetail => countDetail = count + 1);
+        }
     }
   }
 
   function subtract (count) {
     if(count > 0){
         setCount(count - 1);
-        setCountDetail(countDetail => countDetail = count - 1);
+        if(setCountDetail){
+          setCountDetail(countDetail => countDetail = count - 1);
+        }
     }
   }
 

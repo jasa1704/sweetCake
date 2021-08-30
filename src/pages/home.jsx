@@ -3,5 +3,5 @@ import { CartContext } from "../context/cartContext";
 
 export default function Home(){
     const msgWelcome = useContext(CartContext);
-    return <>{msgWelcome} </>;
+    return <>Bienvenido a Dulce Pastel </>;
 }
