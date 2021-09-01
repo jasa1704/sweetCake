@@ -11,10 +11,10 @@ import Cart from "./pages/cart";
 import { CartContext } from "./context/cartContext";
 
 export default function App() {
-  const [itemDetail, setItemDetail] = useState({});
+  const [products, setProducts] = useState([]);
   return (
     <div className="App">
-      <CartContext.Provider value={{ itemDetail, setItemDetail }}>
+      <CartContext.Provider value={{ products, setProducts }}>
         <BrowserRouter>
           <NavBar />
           <Switch>

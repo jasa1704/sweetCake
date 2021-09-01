@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Button } from "react-bootstrap";
 import "./ItemCount.scss";
 
-export default function ItemCount({ stock, setCountDetail }) {
+export default function ItemCount({ stock, setCountDetail = false, quantity = 0 }) {
   const [count, setCount] = useState(0);
 
   function add(count) {
@@ -27,7 +27,7 @@ export default function ItemCount({ stock, setCountDetail }) {
     <>
       <div className="section-count">
         <Button variant="primary" onClick={() => subtract(count)}>-</Button>
-        <span>{count}</span>
+        <span>{quantity === 0 ? count : quantity}</span>
         <Button variant="primary" onClick={() => add(count)}>+</Button>
       </div>
     </>

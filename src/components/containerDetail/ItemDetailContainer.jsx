@@ -11,7 +11,7 @@ import { useContext } from "react";
 export default function ItemDetailContainer() {
 
   const { id } = useParams();
-  const {setItemDetail} = useContext(CartContext);
+  const {setProducts} = useContext(CartContext);
 
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
@@ -40,8 +40,30 @@ export default function ItemDetailContainer() {
   }
 
   const handleChange = () => {
-    setItemDetail({item:product,quantity:countDetail});
+    setProducts(prods => 
+      existProduct(prods) ? updateProduct(prods) :
+        [{item:product,quantity:countDetail},...prods]
+    );
   }
+
+  const existProduct = (prods) => {
+    let exit = false;
+    prods.forEach((element) => {
+      if (element.item.id === product.id) {
+        exit = true;
+      }
+    });
+    return exit;
+  };
+
+  const updateProduct = (prods) => {
+    prods.forEach((element) => {
+      if (element.item.id === product.id) {
+        element.quantity = countDetail;
+      }
+    });
+    return prods;
+  };
   
   return (
     <div>
