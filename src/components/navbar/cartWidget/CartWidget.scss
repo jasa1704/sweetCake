@@ -4,4 +4,14 @@
     &:hover{
         cursor: pointer;
     }
+    .badge{
+        display: inline-block;
+        min-width: 0.5rem;
+        padding: 0.1rem 0.5rem;
+        border-radius: 50%;
+        font-size: 23px;
+        text-align: center;
+        background: #0d6efdad;
+        color: #f9fafb;
+    }
 }

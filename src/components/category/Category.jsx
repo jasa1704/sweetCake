@@ -4,7 +4,7 @@ import { strCategory } from '../../assets/data/strCategory';
 import ItemCard from '../containerList/cardList/card/ItemCard';
 import "./Category.scss";
 import { useParams } from "react-router-dom";
-import { useLocation } from 'react-router'
+import { useLocation } from 'react-router';
 
 
 export default function Category() {

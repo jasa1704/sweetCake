@@ -12,9 +12,11 @@ import { CartContext } from "./context/cartContext";
 
 export default function App() {
   const [products, setProducts] = useState([]);
+  const [quantityTemp, setQuantityTemp] = useState([]);
+
   return (
     <div className="App">
-      <CartContext.Provider value={{ products, setProducts }}>
+      <CartContext.Provider value={{ products, setProducts, quantityTemp, setQuantityTemp}}>
         <BrowserRouter>
           <NavBar />
           <Switch>

@@ -1,15 +1,30 @@
 import React, { useState, useEffect } from "react";
 import ItemCard from "./card/ItemCard";
+import { collection, getDocs } from 'firebase/firestore';
 import { stockData } from "../../../assets/data/data";
 import "./ItemList.scss";
+import { getData } from '../../../firebase';
 
 export default function ItemList({ titleProduct }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   getProducts();
+  // }, []);
+
+  // const getProducts = async () => {
+  //   const productsCollection = collection(getData(), 'products');
+  //   const productsSnapshot = await getDocs(productsCollection);
+  //   const productsSnapshotList = productsSnapshot.docs.map(doc => ({id:doc.id,...doc.data()}));
+  //   console.log(productsSnapshotList);
+  //   setProducts(productsSnapshotList);
+  //   setLoading(false);
+  // };
+
+  useState(() => {
     new Promise((resolve, reject) => {
-      setTimeout(() => resolve(stockData), 3000);
+      setTimeout(() => resolve(stockData), 1000);
     })
       .then((dataResolve) => {
         setLoading(false);

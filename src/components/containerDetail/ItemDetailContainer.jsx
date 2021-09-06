@@ -60,6 +60,8 @@ export default function ItemDetailContainer() {
     prods.forEach((element) => {
       if (element.item.id === product.id) {
         element.quantity = countDetail;
+        element.item.price = element.item.price * countDetail;
+        element.item.stock = element.item.stock - countDetail;
       }
     });
     return prods;
@@ -77,8 +79,9 @@ export default function ItemDetailContainer() {
        <div className="detail">
           <h1 key={product.id}>{product.title}</h1>
           <p>{product.summary}</p>
-          <h3>${product.price}</h3>
-          <h4>Pasteles disponibles {product.stock}</h4>
+          <h3>Precio: ${product.price}</h3>
+          <h3>Precio total: ${countDetail === 0 ? product.price : product.price * countDetail}</h3>
+          <h4>Pasteles disponibles {product.stock - countDetail}</h4>
           <div className="quantity-size">
             <ButtonGroup aria-label="Basic example">
               <Button>Grande</Button>
