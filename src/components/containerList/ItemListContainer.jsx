@@ -1,6 +1,6 @@
 import React from "react";
 import "./ItemListContainer.scss";
-import ItemList from "./cardList/ItemList";
+import ItemList from "../cardList/ItemList";
 
 export default function ItemListContainer(props) {
   return (

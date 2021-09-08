@@ -1,5 +1,4 @@
 import React, { useEffect, useState }  from "react";
-import { stockData } from '../../assets/data/data'
 import "./ItemDetailContainer.scss";
 import { useParams } from "react-router-dom";
 import { Button, ButtonGroup } from "react-bootstrap";
@@ -7,6 +6,8 @@ import { Link } from "react-router-dom";
 import ItemCount from "../count/ItemCount";
 import { CartContext } from "../../context/cartContext";
 import { useContext } from "react";
+import { getDataBase } from '../../firebase';
+import Loader from '../loader/Loader'
 
 export default function ItemDetailContainer() {
 
@@ -17,43 +18,42 @@ export default function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
   const [countDetail, setCountDetail] = useState(0);
 
-  const getItems = () => {
-    new Promise((resolve, reject) => {
-      setTimeout(() => resolve(stockData), 2000);
+  const getProduct = async () => {
+    setLoading(true);
+    const db = getDataBase();
+    const productsCollection = db.collection("products").doc(id);
+    productsCollection.get().then((querySnapshot) => {
+      setProduct({id: id, ...querySnapshot.data()});
+    }).catch((error) => {
+      console.log("Error searching product", error);
+    }).finally(() =>{
+      setLoading(false);
     })
-      .then((dataResolve) => {
-        let itemDetail = dataResolve.find(item => item.id === id);
-        setProduct(itemDetail);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("err", error);
-      });
-  }
+  };
 
   useEffect(() => {
-    getItems();
+    getProduct();
   }, {});
 
   if (loading) {
-    return <h1 className="loading">Cargando...</h1>;
+    return <Loader/>;
   }
 
   const handleChange = () => {
     setProducts(prods => 
-      existProduct(prods) ? updateProduct(prods) :
+      existsProduct(prods) ? updateProduct(prods) :
         [{item:product,quantity:countDetail},...prods]
     );
   }
 
-  const existProduct = (prods) => {
-    let exit = false;
+  const existsProduct = (prods) => {
+    let exists = false;
     prods.forEach((element) => {
       if (element.item.id === product.id) {
-        exit = true;
+        exists = true;
       }
     });
-    return exit;
+    return exists;
   };
 
   const updateProduct = (prods) => {

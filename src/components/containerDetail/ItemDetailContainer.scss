@@ -11,12 +11,12 @@
 
 .container-list-detail{
     display: grid;
-    grid-gap: 0em;
-    gap: 0em;
+    gap: 3em;
     grid-template-columns: repeat(2, 1fr);
-    padding: 3% 7% 3% 7%;
+    padding: 2% 7% 3% 7%;
     .img-detail img{
         border-radius: 20px;
+        width: 30em;
     }
     .detail{
         text-align: initial;

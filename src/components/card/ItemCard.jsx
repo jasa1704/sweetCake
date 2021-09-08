@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ItemCount from "../../../count/ItemCount";
+import ItemCount from "../count/ItemCount";
 import "./ItemCard.scss";
-import ItemSummary from "../../../summary/ItemSummary";
-import { CartContext } from "../../../../context/cartContext";
+import ItemSummary from "../summary/ItemSummary";
+import { CartContext } from "../../context/cartContext";
 import { useContext } from "react";
 import { useLocation } from 'react-router';
 
@@ -103,7 +103,7 @@ export default function ItemCard({id, img, title, price, summary, stock, quantit
           {showDetail ? <ItemSummary summary={summary}/> : null}
           <Card.Body>
             <Card.Title>{title} </Card.Title>
-            { location.pathname === '/products' && 
+            { location.pathname !== '/cart' && 
               <div>
                 <Card.Title>Precio: ${price}</Card.Title>
               </div>
@@ -118,13 +118,13 @@ export default function ItemCard({id, img, title, price, summary, stock, quantit
               }
 
             {
-               location.pathname === '/products' &&<ListGroup variant="flush">
+               location.pathname !== '/cart' &&<ListGroup variant="flush">
               <ItemCount id={id} stock={validateStock()} countDetail={countDetail} setCountDetail={setCountDetail}/>
               <Button as={Link} to={`/products-detail/${id}`} variant="primary">Detalle del producto</Button>
             </ListGroup>}
           </Card.Body>
           <Card.Footer className="card-footer">
-            { (location.pathname === '/products' && countDetail > 0) &&
+            { (location.pathname !== '/cart' && countDetail > 0) &&
               <Button style={{paddingRight:"10px"}} variant="primary" as={Link} to="/cart" onClick={addItem}>Agregar</Button>
             }
             {

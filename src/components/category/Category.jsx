@@ -1,10 +1,11 @@
 import React, { useEffect, useState }  from "react";
-import { stockData } from '../../assets/data/data';
 import { strCategory } from '../../assets/data/strCategory';
-import ItemCard from '../containerList/cardList/card/ItemCard';
+import ItemCard from '../card/ItemCard';
 import "./Category.scss";
 import { useParams } from "react-router-dom";
 import { useLocation } from 'react-router';
+import { getDataBase } from '../../firebase';
+import Loader from '../loader/Loader'
 
 
 export default function Category() {
@@ -16,30 +17,33 @@ export default function Category() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading]  = useState(['...Cargando']);
 
-  const getItems = () => {
-    new Promise((resolve, reject) => {
-      setTimeout(() => resolve(stockData), 2000);
+  const getProducts = async () => {
+    setLoading(true);
+    const db = getDataBase();
+    const productsCollection = db.collection("products").where('category', "==", id);
+    productsCollection.get().then((querySnapshot) => {
+      if(querySnapshot.size === 0){
+        console.log("No results");
+      }
+      const productsSnapshotList = querySnapshot.docs.map(doc => ({id:doc.id,...doc.data()}));
+      setTitleCategory(strCategory[productsSnapshotList[0].category]);
+      setProducts(productsSnapshotList);
+    }).catch((error) => {
+      console.log("Error searching products", error);
+    }).finally(() =>{
+      setLoading(false);
     })
-      .then((dataResolve) => {
-        let category = dataResolve.filter(item => item.category.toString() === id);
-        setProducts(category);
-        setTitleCategory(strCategory[category[0].category]);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("err", error);
-      });
-  }
+  };
 
   useEffect(
     () => {
-      getItems();
+      getProducts();
     },
     [location]
   )
 
   if (loading) {
-    return <h1 className="loading">Cargando...</h1>;
+    return <Loader/>;
   }
 
   return (

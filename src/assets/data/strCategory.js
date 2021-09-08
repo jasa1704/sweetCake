@@ -1,14 +1,14 @@
 export const strCategory = {
-    1: {
+    "loveFriendship": {
       category: "Amor y amistad"
     },
-    2: {
+    "valentineDay": {
       category: "San valentin"
     },
-    3: {
+    "films": {
       category: "Peliculas"
     },
-    4: {
+    "childish": {
       category: "Infantil"
     }
 };

@@ -2,7 +2,7 @@ import React, {useState, useCallback} from "react";
 import { CartContext } from "../../context/cartContext";
 import { useContext } from "react";
 import "./CartList.scss";
-import ItemCard from '../containerList/cardList/card/ItemCard'
+import ItemCard from '../card/ItemCard'
 
 export default function CartList() {
 

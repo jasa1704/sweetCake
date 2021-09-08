@@ -9,7 +9,7 @@ export default function NavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" variant="light" className="style-nav">
             <Container>
-                <Navbar.Brand as={Link} to="/home">
+                <Navbar.Brand as={Link} to="/products">
                     <img
                         src={logo}
                         width="70"
@@ -22,13 +22,12 @@ export default function NavBar() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav>
-                        <Nav.Link as={Link} to="/home">Inicio</Nav.Link>
                         <Nav.Link as={Link} to="/products">Productos</Nav.Link>
                         <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                            <NavDropdown.Item as={Link} to="/product-category/1">Amor y amistad</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/product-category/2">San Valentin</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/product-category/3">Peliculas</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/product-category/4">Infantil</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product-category/loveFriendship">Amor y amistad</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product-category/valentineDay">San Valentin</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product-category/films">Peliculas</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product-category/childish">Infantil</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link as={Link} to="/cart"> <CartWidget/> </Nav.Link>
                        
