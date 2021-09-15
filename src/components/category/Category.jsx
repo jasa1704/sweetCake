@@ -2,7 +2,7 @@ import React, { useEffect, useState }  from "react";
 import { strCategory } from '../../assets/data/strCategory';
 import ItemCard from '../card/ItemCard';
 import "./Category.scss";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useLocation } from 'react-router';
 import { getDataBase } from '../../firebase';
 import Loader from '../loader/Loader'
@@ -11,6 +11,7 @@ import Loader from '../loader/Loader'
 export default function Category() {
 
   const location = useLocation();
+  const history = useHistory();
   const { id } = useParams();
 
   const [titleCategory, setTitleCategory] = useState('');
@@ -23,7 +24,7 @@ export default function Category() {
     const productsCollection = db.collection("products").where('category', "==", id);
     productsCollection.get().then((querySnapshot) => {
       if(querySnapshot.size === 0){
-        console.log("No results");
+        history.push('/error')
       }
       const productsSnapshotList = querySnapshot.docs.map(doc => ({id:doc.id,...doc.data()}));
       setTitleCategory(strCategory[productsSnapshotList[0].category]);

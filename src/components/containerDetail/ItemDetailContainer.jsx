@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import "./ItemDetailContainer.scss";
-import { useParams } from "react-router-dom";
-import { Button, ButtonGroup } from "react-bootstrap";
+import { useParams, useHistory } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from "../count/ItemCount";
 import { CartContext } from "../../context/cartContext";
@@ -11,6 +11,7 @@ import Loader from '../loader/Loader'
 
 export default function ItemDetailContainer() {
 
+  const history = useHistory();
   const { id } = useParams();
   const {setProducts} = useContext(CartContext);
 
@@ -23,6 +24,9 @@ export default function ItemDetailContainer() {
     const db = getDataBase();
     const productsCollection = db.collection("products").doc(id);
     productsCollection.get().then((querySnapshot) => {
+      if(!querySnapshot.exists){
+        history.push('/error')
+      }
       setProduct({id: id, ...querySnapshot.data()});
     }).catch((error) => {
       console.log("Error searching product", error);
@@ -83,11 +87,6 @@ export default function ItemDetailContainer() {
           <h3>Precio total: ${countDetail === 0 ? product.price : product.price * countDetail}</h3>
           <h4>Pasteles disponibles {product.stock - countDetail}</h4>
           <div className="quantity-size">
-            <ButtonGroup aria-label="Basic example">
-              <Button>Grande</Button>
-              <Button>Mediano</Button>
-              <Button>Pequeño</Button>
-            </ButtonGroup>
             <ItemCount stock={product.stock} setCountDetail={setCountDetail}/>
           </div>
           {countDetail > 0 ? <Button variant="primary" as={Link} to="/cart" onClick={handleChange} >Agregar al carrito</Button>: null}

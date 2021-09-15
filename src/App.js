@@ -1,11 +1,12 @@
 import "./App.css";
 import { useState } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/navbar/NavBar";
 import Products from "./pages/products";
 import ProductCategory from "./pages/productCategory";
 import ProductDetail from "./pages/productDetail";
+import NotFound from "./pages/notFound";
 import Cart from "./pages/cart";
 import { CartContext } from "./context/cartContext";
 
@@ -34,6 +35,8 @@ export default function App() {
             <Route exact path="/cart">
               <Cart />
             </Route>
+            <Route path='/error' exact={true} component={NotFound} />
+            <Redirect from='*' to='/error' />
           </Switch>
         </BrowserRouter>
       </CartContext.Provider>

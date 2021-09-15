@@ -20,7 +20,7 @@ export default function ItemCard({id, img, title, price, summary, stock, quantit
     summary,
     stock
   }
-  const {setProducts, quantityTemp, setQuantityTemp} = useContext(CartContext);
+  const {products,setProducts, quantityTemp, setQuantityTemp} = useContext(CartContext);
   const [showDetail, setShowDetail]=useState(false);
   const [countDetail, setCountDetail] = useState(0);
   
@@ -36,6 +36,7 @@ export default function ItemCard({id, img, title, price, summary, stock, quantit
         return updateProduct(prods)
       }else{
         setQuantityTemp([{id:id,quantityTemp:countDetail}]);
+        console.log(quantityTemp);
         return [{item:product,quantity:countDetail},...prods];
       }
     }
@@ -72,9 +73,9 @@ export default function ItemCard({id, img, title, price, summary, stock, quantit
 
   const validateStock = () => {
     let onStock = stock;
-    quantityTemp.forEach(item=>{
-      if(item.id === id){
-        onStock = stock - item.quantityTemp;
+    products.forEach(product=>{
+      if(product.item.id === id){
+        onStock = stock - product.quantity;
       }
     })
     return onStock;

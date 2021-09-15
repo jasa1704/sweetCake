@@ -28,5 +28,8 @@
         display: flex;
         justify-self: flex-start;
         margin: 30px 0 30px 0;
+        .section-count{
+            margin: 0;
+        }
     }
 }

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ItemCard from "../card/ItemCard";
+import { useHistory } from "react-router-dom";
 import "./ItemList.scss";
 import { getDataBase } from '../../firebase';
 import Loader from '../loader/Loader'
 
 export default function ItemList({ titleProduct }) {
+  const history = useHistory();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -18,10 +20,9 @@ export default function ItemList({ titleProduct }) {
     const productsCollection = db.collection("products");
     productsCollection.get().then((querySnapshot) => {
       if(querySnapshot.size === 0){
-        console.log("No results");
+        history.push('/error')
       }
       const productsSnapshotList = querySnapshot.docs.map(doc => ({id:doc.id,...doc.data()}));
-      console.log(productsSnapshotList);
       setProducts(productsSnapshotList);
     }).catch((error) => {
       console.log("Error searching products", error);
@@ -40,15 +41,15 @@ export default function ItemList({ titleProduct }) {
         <h1>{titleProduct}</h1>
       </div>
       <div className="container-list">
-        {products.map((stockProduct) => (
+        {products.map((product) => (
           <ItemCard
-            key={stockProduct.id}
-            id={stockProduct.id}
-            img={stockProduct.img}
-            title={stockProduct.title}
-            price={stockProduct.price}
-            summary={stockProduct.summary}
-            stock={stockProduct.stock}
+            key={product.id}
+            id={product.id}
+            img={product.img}
+            title={product.title}
+            price={product.price}
+            summary={product.summary}
+            stock={product.stock}
           />
         ))}
       </div>
