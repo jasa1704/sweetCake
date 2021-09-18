@@ -1,6 +1,6 @@
 # Ecommerce `CODERHOUSE` - Proyecto `Dulce Pastel`
 
-Puede visitarlo online [aquí](https://jasa1704.github.io/sweet-cake/).
+Puede visitarlo online [aquí](https://jasa1704.github.io/sweetCake/).
 
 ## Scripts Disponibles:
 
