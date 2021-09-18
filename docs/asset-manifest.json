@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/sweet-cake/static/css/main.79a68ec8.chunk.css",
-    "main.js": "/sweet-cake/static/js/main.11374571.chunk.js",
-    "main.js.map": "/sweet-cake/static/js/main.11374571.chunk.js.map",
-    "runtime-main.js": "/sweet-cake/static/js/runtime-main.3c8a7d83.js",
-    "runtime-main.js.map": "/sweet-cake/static/js/runtime-main.3c8a7d83.js.map",
-    "static/css/2.4be38407.chunk.css": "/sweet-cake/static/css/2.4be38407.chunk.css",
-    "static/js/2.02f7c965.chunk.js": "/sweet-cake/static/js/2.02f7c965.chunk.js",
-    "static/js/2.02f7c965.chunk.js.map": "/sweet-cake/static/js/2.02f7c965.chunk.js.map",
-    "static/js/3.99f3089c.chunk.js": "/sweet-cake/static/js/3.99f3089c.chunk.js",
-    "static/js/3.99f3089c.chunk.js.map": "/sweet-cake/static/js/3.99f3089c.chunk.js.map",
-    "index.html": "/sweet-cake/index.html",
-    "static/css/2.4be38407.chunk.css.map": "/sweet-cake/static/css/2.4be38407.chunk.css.map",
-    "static/css/main.79a68ec8.chunk.css.map": "/sweet-cake/static/css/main.79a68ec8.chunk.css.map",
-    "static/js/2.02f7c965.chunk.js.LICENSE.txt": "/sweet-cake/static/js/2.02f7c965.chunk.js.LICENSE.txt",
-    "static/media/logo-sweet-cake.8d59630b.png": "/sweet-cake/static/media/logo-sweet-cake.8d59630b.png"
+    "main.css": "/products/static/css/main.79a68ec8.chunk.css",
+    "main.js": "/products/static/js/main.11374571.chunk.js",
+    "main.js.map": "/products/static/js/main.11374571.chunk.js.map",
+    "runtime-main.js": "/products/static/js/runtime-main.82cb8894.js",
+    "runtime-main.js.map": "/products/static/js/runtime-main.82cb8894.js.map",
+    "static/css/2.4be38407.chunk.css": "/products/static/css/2.4be38407.chunk.css",
+    "static/js/2.5c20332b.chunk.js": "/products/static/js/2.5c20332b.chunk.js",
+    "static/js/2.5c20332b.chunk.js.map": "/products/static/js/2.5c20332b.chunk.js.map",
+    "static/js/3.99f3089c.chunk.js": "/products/static/js/3.99f3089c.chunk.js",
+    "static/js/3.99f3089c.chunk.js.map": "/products/static/js/3.99f3089c.chunk.js.map",
+    "index.html": "/products/index.html",
+    "static/css/2.4be38407.chunk.css.map": "/products/static/css/2.4be38407.chunk.css.map",
+    "static/css/main.79a68ec8.chunk.css.map": "/products/static/css/main.79a68ec8.chunk.css.map",
+    "static/js/2.5c20332b.chunk.js.LICENSE.txt": "/products/static/js/2.5c20332b.chunk.js.LICENSE.txt",
+    "static/media/logo-sweet-cake.8d59630b.png": "/products/static/media/logo-sweet-cake.8d59630b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.3c8a7d83.js",
+    "static/js/runtime-main.82cb8894.js",
     "static/css/2.4be38407.chunk.css",
-    "static/js/2.02f7c965.chunk.js",
+    "static/js/2.5c20332b.chunk.js",
     "static/css/main.79a68ec8.chunk.css",
     "static/js/main.11374571.chunk.js"
   ]
