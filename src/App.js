@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="App">
       <CartContext.Provider value={{ products, setProducts, quantityTemp, setQuantityTemp}}>
-        <BrowserRouter>
+        <BrowserRouter basename="/sweet-cake">
           <NavBar />
           <Switch>
             <Route exact path="/">
