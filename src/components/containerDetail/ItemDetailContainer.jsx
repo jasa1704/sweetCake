@@ -13,7 +13,7 @@ export default function ItemDetailContainer() {
 
   const history = useHistory();
   const { id } = useParams();
-  const {setProducts} = useContext(CartContext);
+  const {products, setProducts, quantityTemp, setQuantityTemp} = useContext(CartContext);
 
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
@@ -37,39 +37,73 @@ export default function ItemDetailContainer() {
 
   useEffect(() => {
     getProduct();
-  }, {});
+  },[]);
 
   if (loading) {
     return <Loader/>;
   }
 
-  const handleChange = () => {
-    setProducts(prods => 
-      existsProduct(prods) ? updateProduct(prods) :
-        [{item:product,quantity:countDetail},...prods]
+  const addItem = () => {
+    
+    setProducts(prods => {
+      if(existsProduct(prods))
+      {
+        return updateProduct(prods)
+      }else{
+        setQuantityTemp([{id:id,quantityTemp:countDetail}]);
+        return [{item:product,quantity:countDetail},...prods];
+      }
+    }
     );
   }
 
   const existsProduct = (prods) => {
-    let exists = false;
+    let exit = false;
     prods.forEach((element) => {
       if (element.item.id === product.id) {
-        exists = true;
+        exit = true;
       }
     });
-    return exists;
+    return exit;
   };
+
+  const updateQuantityTemp = (id) => {
+    quantityTemp.forEach(item=>{
+      if(item.id === id){
+        setQuantityTemp([{id:id,quantityTemp:countDetail+item.quantityTemp}]);
+      }
+    })
+  }
 
   const updateProduct = (prods) => {
     prods.forEach((element) => {
       if (element.item.id === product.id) {
-        element.quantity = countDetail;
-        element.item.price = element.item.price * countDetail;
-        element.item.stock = element.item.stock - countDetail;
+        element.quantity += countDetail;
+        updateQuantityTemp(product.id);
       }
     });
     return prods;
   };
+
+  const calulatePrice = () => {
+    let price = product.price;
+    products.forEach(prod=>{
+      if(prod.item.id === id){
+        price = product.price * prod.quantity;
+      }
+    })
+    return price;
+  }
+
+  const validateStock = () => {
+    let onStock = product.stock;
+    products.forEach(prod=>{
+      if(prod.item.id === id){
+        onStock = product.stock - prod.quantity;
+      }
+    })
+    return onStock;
+  }
   
   return (
     <div>
@@ -78,18 +112,18 @@ export default function ItemDetailContainer() {
       </div>
       <div className="container-list-detail">
        <div className="img-detail">
-         <img src={product.img}></img>
+         <img src={product.img} alt={product.id}></img>
        </div>
        <div className="detail">
           <h1 key={product.id}>{product.title}</h1>
           <p>{product.summary}</p>
           <h3>Precio: ${product.price}</h3>
-          <h3>Precio total: ${countDetail === 0 ? product.price : product.price * countDetail}</h3>
-          <h4>Pasteles disponibles {product.stock - countDetail}</h4>
+          <h3>Precio total: ${calulatePrice()}</h3>
+          <h4>Pasteles disponibles: {validateStock()}</h4>
           <div className="quantity-size">
             <ItemCount stock={product.stock} setCountDetail={setCountDetail}/>
           </div>
-          {countDetail > 0 ? <Button variant="primary" as={Link} to="/cart" onClick={handleChange} >Agregar al carrito</Button>: null}
+          {countDetail > 0 ? <Button variant="primary" as={Link} to="/cart" onClick={addItem} >Agregar al carrito</Button>: null}
        </div>
       </div>
     </div>

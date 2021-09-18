@@ -31,19 +31,18 @@ export default function ItemCard({id, img, title, price, summary, stock, quantit
   const addItem = () => {
     
     setProducts(prods => {
-      if(existProduct(prods))
+      if(existsProduct(prods))
       {
         return updateProduct(prods)
       }else{
         setQuantityTemp([{id:id,quantityTemp:countDetail}]);
-        console.log(quantityTemp);
         return [{item:product,quantity:countDetail},...prods];
       }
     }
     );
   }
 
-  const existProduct = (prods) => {
+  const existsProduct = (prods) => {
     let exit = false;
     prods.forEach((element) => {
       if (element.item.id === product.id) {
@@ -114,7 +113,7 @@ export default function ItemCard({id, img, title, price, summary, stock, quantit
                 <div>
                 <Card.Title> Precio: ${price}</Card.Title>
                 <Card.Title> Precio total: ${price*quantity}</Card.Title>
-                <Card.Title> Unidades compradas: {quantity} </Card.Title>
+                <Card.Title> Unidades agregadas al carrito: {quantity} </Card.Title>
                 </div>
               }
 

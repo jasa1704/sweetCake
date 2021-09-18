@@ -145,9 +145,9 @@ export default function CartList() {
             />
           </InputGroup>
         </Modal.Body>
-        { orderRef !== '' && <div className="product-buy">
+        { orderRef !== '' ? <div className="product-buy">
           <h6>¡Gracias por comprar en Dulce Paste, su orden de compra es: {orderRef}!</h6>
-        </div>}
+        </div> : <div className="total-buy"><strong>Total a pagar: {getTotal()}</strong></div>}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar

@@ -1,18 +1,20 @@
-# Ecommerce - Poryecto coder house
+# Ecommerce `CODERHOUSE` - Proyecto `Dulce Pastel`
 
-Puede visitarlo online aqui.
+Puede visitarlo online [aquí](https://jasa1704.github.io/sweet-cake/).
 
-Scripts Disponibles:
+## Scripts Disponibles:
 
 Instalacion de dependencias:
+### `npm i`
 
-npm i
+Correr la aplicación localmente: [localhost:3000](http://localhost:3000/)
 
-correr la apliacion localmente localhost:3000
-
-npm run start
+### `npm run start`
 
 para buildear la app en modo de producción
 
-npm run build
+### `npm run build`
 
+## Navegación de la app
+
+![GIF](/src/assets/gif-app/sweet-cake.gif "NAVEGACION")

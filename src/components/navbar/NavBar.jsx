@@ -22,7 +22,7 @@ export default function NavBar() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav>
-                        <Nav.Link as={Link} to="/products">Productos</Nav.Link>
+                        <Nav.Link as={Link} to="/products">Tienda</Nav.Link>
                         <NavDropdown title="Categorias" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/product-category/loveFriendship">Amor y amistad</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/product-category/valentineDay">San Valentin</NavDropdown.Item>
